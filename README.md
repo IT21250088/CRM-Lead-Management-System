@@ -2,7 +2,7 @@
 
 A full-stack Customer Relationship Management (CRM) application for managing sales leads, tracking progress through a sales pipeline, adding notes, and viewing a comprehensive dashboard.
 
-## 🎯 Features
+## Features
 
 ### Authentication
 - JWT-based authentication
@@ -67,13 +67,13 @@ A full-stack Customer Relationship Management (CRM) application for managing sal
 - **bcryptjs** - Password hashing
 - **CORS** - Cross-origin requests
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js (v14 or higher)
 - MongoDB (local or Atlas)
 - npm or yarn
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 ```bash
@@ -91,12 +91,12 @@ npm install
 
 # Create .env file with your configuration
 # Edit .env with your MongoDB URI and JWT secret
-cat > .env << EOF
+
 PORT=5000
 MONGO_URI=mongodb://localhost:27017/crm-lead-management
-JWT_SECRET=your_jwt_secret_key_change_this_in_production
+JWT_SECRET=your_jwt_secret_key
 NODE_ENV=development
-EOF
+
 
 # Seed the database with test data
 npm run seed
@@ -116,9 +116,9 @@ cd ../frontend
 npm install
 
 # Create .env file
-cat > .env << EOF
+
 VITE_API_URL=http://localhost:5000
-EOF
+
 
 # Start the development server
 npm run dev
@@ -126,29 +126,16 @@ npm run dev
 
 The frontend will run on `http://localhost:3000`
 
-## 🔐 Test Login Credentials
+## Test Login Credentials
 
 ```
 Email: admin@example.com
 Password: password123
 ```
 
-## 📦 Database Setup
+## Database Setup
 
-### Option 1: Local MongoDB
-Ensure MongoDB is running locally:
-```bash
-# macOS with Homebrew
-brew services start mongodb-community
-
-# Windows (if installed)
-mongod
-
-# Linux
-sudo systemctl start mongod
-```
-
-### Option 2: MongoDB Atlas (Cloud)
+###  MongoDB Atlas (Cloud)
 1. Create a free MongoDB Atlas cluster
 2. Get your connection string
 3. Update the `MONGO_URI` in backend `.env`
@@ -161,7 +148,7 @@ The seed script creates:
 
 Run anytime: `npm run seed`
 
-## 🏗 Project Structure
+## Project Structure
 
 ```
 CRM-Lead-Management-System/
@@ -230,7 +217,7 @@ CRM-Lead-Management-System/
 ### Dashboard
 - `GET /api/dashboard/stats` - Get dashboard statistics
 
-## 🎨 Features Explained
+## Features Explained
 
 ### Lead Status Pipeline
 - **New**: Recently added leads
@@ -252,7 +239,7 @@ CRM-Lead-Management-System/
 - Track who added each note
 - Delete individual notes
 
-## 🧪 Testing Features
+## Testing Features
 
 ### Create a Lead
 1. Click "New Lead" button
@@ -278,7 +265,7 @@ CRM-Lead-Management-System/
 4. Select salesperson filter
 5. Click "Reset Filters" to clear
 
-## 📊 Dashboard Statistics
+## Dashboard Statistics
 
 The dashboard displays:
 - Total number of leads
@@ -287,7 +274,7 @@ The dashboard displays:
 - Won deals value
 - Quick insights and recommendations
 
-## ⚙️ Environment Variables
+## Environment Variables
 
 ### Backend
 ```
@@ -302,92 +289,3 @@ NODE_ENV=development
 VITE_API_URL=http://localhost:5000
 ```
 
-## 🐛 Troubleshooting
-
-### Connection Refused
-- Ensure backend is running on port 5000
-- Check MongoDB is running
-- Verify MONGO_URI is correct
-
-### Leads Not Loading
-- Check browser console for errors
-- Verify JWT token in localStorage
-- Ensure backend seed was run
-
-### CORS Errors
-- Verify backend CORS middleware
-- Check frontend API URL matches backend URL
-
-## 🔒 Security Notes
-
-- Change `JWT_SECRET` in production
-- Use environment variables for sensitive data
-- Implement password hashing (already done with bcryptjs)
-- Add input validation (already implemented)
-- Use HTTPS in production
-
-## 📱 Responsive Design
-
-The application is responsive and works on:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (< 768px)
-
-## 🚀 Deployment
-
-### Frontend (Vercel/Netlify)
-1. Build: `npm run build`
-2. Deploy `dist/` folder
-3. Set environment variables
-
-### Backend (Heroku/Railway/Render)
-1. Deploy Node.js application
-2. Set MongoDB Atlas connection
-3. Set environment variables
-4. Run seed command after first deployment
-
-## 📝 Known Limitations
-
-- Single salesperson (Admin User) in current implementation
-- No user role-based access control
-- No email notifications
-- No bulk lead import
-- No lead assignment workflow
-- No reporting/analytics beyond dashboard
-
-## 🎯 Future Enhancements
-
-Potential features for improvement:
-- Multiple user roles and permissions
-- Email notifications and reminders
-- Lead scoring and AI insights
-- Activity timeline
-- File attachments
-- Email integration
-- Advanced reporting
-- Mobile app
-- Lead import/export
-- Custom fields
-
-## 📄 License
-
-This project is provided as-is for educational purposes.
-
-## 👥 Support
-
-For issues or questions, please check:
-1. The console for error messages
-2. API response status codes
-3. Database connection status
-4. Environment variables configuration
-
-## 📚 Additional Resources
-
-- [React Documentation](https://react.dev)
-- [Express.js Guide](https://expressjs.com)
-- [MongoDB Documentation](https://docs.mongodb.com)
-- [Vite Guide](https://vitejs.dev)
-
----
-
-**Built for the Full-Stack CRM Take-Home Assessment**
