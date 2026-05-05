@@ -49,7 +49,7 @@ A full-stack Customer Relationship Management (CRM) application for managing sal
 - Filter by assigned salesperson
 - Real-time filtering
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React 18** - UI library
