@@ -1,0 +1,156 @@
+.lead-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.lead-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lead-details-header h1 {
+  margin: 0 0 5px 0;
+  font-size: 28px;
+  color: var(--dark-gray);
+}
+
+.company-name {
+  margin: 0;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.header-actions button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+.details-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.details-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.details-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-card h2 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: var(--dark-gray);
+  border-bottom: 2px solid var(--light-gray);
+  padding-bottom: 10px;
+}
+
+.detail-item {
+  margin-bottom: 15px;
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+}
+
+.detail-item label {
+  display: block;
+  font-weight: 600;
+  color: var(--dark-gray);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.detail-item p,
+.detail-item a {
+  margin: 0;
+  color: var(--dark-gray);
+  font-size: 15px;
+}
+
+.detail-item a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.detail-item a:hover {
+  text-decoration: underline;
+}
+
+.deal-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.details-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #dc2626;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px;
+  border-left: 4px solid #dc2626;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--dark-gray);
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .lead-details-container {
+    padding: 20px;
+  }
+
+  .lead-details-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .lead-details-header h1 {
+    font-size: 24px;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-actions button {
+    flex: 1;
+  }
+
+  .details-content {
+    grid-template-columns: 1fr;
+  }
+}
