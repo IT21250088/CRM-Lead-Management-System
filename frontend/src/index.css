@@ -5,14 +5,14 @@
 }
 
 :root {
-  --primary-color: #2563eb;
-  --primary-dark: #1e40af;
-  --secondary-color: #10b981;
-  --danger-color: #ef4444;
-  --warning-color: #f59e0b;
-  --light-gray: #f3f4f6;
-  --dark-gray: #374151;
-  --border-color: #e5e7eb;
+  --primary-color: #0d9488;
+  --primary-dark: #0f766e;
+  --secondary-color: #06b6d4;
+  --danger-color: #dc2626;
+  --warning-color: #ea580c;
+  --light-gray: #f0fdf4;
+  --dark-gray: #134e4a;
+  --border-color: #ccfbf1;
 }
 
 body {
