@@ -9,6 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState('password123');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,13 +50,23 @@ export default function Login() {
 
           <div className="form-group">
             <label>Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="password123"
-              required
-            />
+            <div className="password-input-wrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="password123"
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+                title={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? '🙈' : '👁️'}
+              </button>
+            </div>
           </div>
 
           <button
@@ -67,11 +78,11 @@ export default function Login() {
           </button>
         </form>
 
-        <div className="test-credentials">
+        {/* <div className="test-credentials">
           <p><strong>Test Credentials:</strong></p>
           <p>Email: <code>admin@example.com</code></p>
           <p>Password: <code>password123</code></p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

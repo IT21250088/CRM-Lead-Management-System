@@ -83,7 +83,7 @@ export default function LeadForm() {
                 value={formData.leadName}
                 onChange={handleChange}
                 required
-                placeholder="e.g., John Smith"
+                placeholder="Alex Johnson"
               />
             </div>
             <div className="form-group">
@@ -94,7 +94,7 @@ export default function LeadForm() {
                 value={formData.companyName}
                 onChange={handleChange}
                 required
-                placeholder="e.g., TechCorp Inc"
+                placeholder="Acme Solutions"
               />
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function LeadForm() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="john@example.com"
+                placeholder="alex.johnson@company.com"
               />
             </div>
             <div className="form-group">
@@ -118,7 +118,7 @@ export default function LeadForm() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+1-555-0101"
+                placeholder="+94 123 456 789"
               />
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function LeadForm() {
                 name="assignedSalesperson"
                 value={formData.assignedSalesperson}
                 onChange={handleChange}
-                placeholder="Admin User"
+                placeholder="John Doe"
               />
             </div>
             <div className="form-group">
@@ -170,7 +170,7 @@ export default function LeadForm() {
                 name="estimatedDealValue"
                 value={formData.estimatedDealValue}
                 onChange={handleChange}
-                placeholder="50000"
+                placeholder="100000"
               />
             </div>
           </div>
