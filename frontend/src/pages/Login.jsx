@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authAPI } from '../services/api';
+import { validateLoginForm } from '../utils/validations';
 import './Login.css';
 
 export default function Login() {
@@ -9,11 +10,21 @@ export default function Login() {
   const [password, setPassword] = useState('password123');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setFieldErrors({});
+
+    // Validate form
+    const errors = validateLoginForm(email, password);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -44,8 +55,9 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="admin@example.com"
-              required
+              className={fieldErrors.email ? 'input-error' : ''}
             />
+            {fieldErrors.email && <span className="field-error">{fieldErrors.email}</span>}
           </div>
 
           <div className="form-group">
@@ -56,7 +68,7 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="password123"
-                required
+                className={fieldErrors.password ? 'input-error' : ''}
               />
               <button
                 type="button"
@@ -67,6 +79,7 @@ export default function Login() {
                 {showPassword ? '🙈' : '👁️'}
               </button>
             </div>
+            {fieldErrors.password && <span className="field-error">{fieldErrors.password}</span>}
           </div>
 
           <button

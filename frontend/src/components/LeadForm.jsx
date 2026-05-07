@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { leadsAPI } from '../services/api';
+import { validateLeadForm } from '../utils/validations';
 import './LeadForm.css';
 
 const STATUSES = ['New', 'Contacted', 'Qualified', 'Proposal Sent', 'Won', 'Lost'];
@@ -11,6 +12,7 @@ export default function LeadForm() {
   const { id } = useParams();
   const [loading, setLoading] = useState(!!id);
   const [error, setError] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
   const [formData, setFormData] = useState({
     leadName: '',
     companyName: '',
@@ -50,6 +52,14 @@ export default function LeadForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setFieldErrors({});
+
+    // Validate form
+    const errors = validateLeadForm(formData);
+    if (Object.keys(errors).length > 0) {
+      setFieldErrors(errors);
+      return;
+    }
 
     try {
       if (id) {
@@ -82,9 +92,10 @@ export default function LeadForm() {
                 name="leadName"
                 value={formData.leadName}
                 onChange={handleChange}
-                required
                 placeholder="Alex Johnson"
+                className={fieldErrors.leadName ? 'input-error' : ''}
               />
+              {fieldErrors.leadName && <span className="field-error">{fieldErrors.leadName}</span>}
             </div>
             <div className="form-group">
               <label>Company Name *</label>
@@ -93,9 +104,10 @@ export default function LeadForm() {
                 name="companyName"
                 value={formData.companyName}
                 onChange={handleChange}
-                required
                 placeholder="Acme Solutions"
+                className={fieldErrors.companyName ? 'input-error' : ''}
               />
+              {fieldErrors.companyName && <span className="field-error">{fieldErrors.companyName}</span>}
             </div>
           </div>
 
@@ -107,9 +119,10 @@ export default function LeadForm() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                required
                 placeholder="alex.johnson@company.com"
+                className={fieldErrors.email ? 'input-error' : ''}
               />
+              {fieldErrors.email && <span className="field-error">{fieldErrors.email}</span>}
             </div>
             <div className="form-group">
               <label>Phone</label>
@@ -119,7 +132,9 @@ export default function LeadForm() {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="+94 123 456 789"
+                className={fieldErrors.phone ? 'input-error' : ''}
               />
+              {fieldErrors.phone && <span className="field-error">{fieldErrors.phone}</span>}
             </div>
           </div>
 
@@ -130,7 +145,6 @@ export default function LeadForm() {
                 name="leadSource"
                 value={formData.leadSource}
                 onChange={handleChange}
-                required
               >
                 {LEAD_SOURCES.map(source => (
                   <option key={source} value={source}>{source}</option>
@@ -143,7 +157,6 @@ export default function LeadForm() {
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                required
               >
                 {STATUSES.map(status => (
                   <option key={status} value={status}>{status}</option>
@@ -171,7 +184,9 @@ export default function LeadForm() {
                 value={formData.estimatedDealValue}
                 onChange={handleChange}
                 placeholder="100000"
+                className={fieldErrors.estimatedDealValue ? 'input-error' : ''}
               />
+              {fieldErrors.estimatedDealValue && <span className="field-error">{fieldErrors.estimatedDealValue}</span>}
             </div>
           </div>
 
